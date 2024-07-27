@@ -16,13 +16,12 @@ using System.Windows.Shapes;
 namespace PowerPoint_Merger.Pages;
 
 /// <summary>
-/// Interaction logic for HomePage.xaml
+/// Interaction logic for SourcesPage.xaml
 /// </summary>
-public partial class HomePage : Page
+public partial class SourcesPage : Page
 {
-    public HomePage()
+    public SourcesPage()
     {
         InitializeComponent();
-        SearchTextBox.Focus();
     }
 }

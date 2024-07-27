@@ -10,18 +10,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PowerPoint_Merger
+namespace PowerPoint_Merger;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            MainFrame.Content = new HomePage();
-            MainFrame.Focus();
-        }
+        InitializeComponent();
+        MainFrame.Navigate(new HomePage());
+        MainFrame.Focus();
+    }
+
+    private void SourcesMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        MainFrame.Navigate(new SourcesPage());
+    }
+
+    private void HomeMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        MainFrame.Navigate(new HomePage());
     }
 }

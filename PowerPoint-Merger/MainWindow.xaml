@@ -28,7 +28,7 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
 
-            <MenuItem Height="25">
+            <MenuItem Height="25" x:Name="HomeMenuItem" Click="HomeMenuItem_Click">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:FontAwesome Icon="Home" Foreground="White" FontSize="15" Margin="0,1,5,0"/>
@@ -45,7 +45,7 @@
                     </StackPanel>
                 </MenuItem.Header>
 
-                <MenuItem>
+                <MenuItem x:Name="SourcesMenuItem" Click="SourcesMenuItem_Click">
                     <MenuItem.Icon>
                         <TextBlock Text="1 )" FontFamily="Segoe UI" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </MenuItem.Icon>
@@ -59,7 +59,7 @@
                 </MenuItem>
             </MenuItem>
             
-            <MenuItem Height="25" HorizontalAlignment="Right">
+            <MenuItem x:Name="AboutMenuItem" Height="25" HorizontalAlignment="Right">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <fa:FontAwesome Icon="Info" Foreground="Blue" FontSize="15" Margin="0,1,5,0"/>
