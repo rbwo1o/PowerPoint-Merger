@@ -59,11 +59,11 @@
                 </MenuItem>
             </MenuItem>
             
-            <MenuItem x:Name="AboutMenuItem" Height="25" HorizontalAlignment="Right">
+            <MenuItem x:Name="InfoMenuItem" Height="25" HorizontalAlignment="Right" Click="InfoMenuItem_Click">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <fa:FontAwesome Icon="Info" Foreground="Blue" FontSize="15" Margin="0,1,5,0"/>
-                        <TextBlock Text="About" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock Text="Info" Foreground="White" FontFamily="Segoe UI"/>
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>

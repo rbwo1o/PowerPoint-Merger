@@ -33,4 +33,13 @@ public partial class MainWindow : Window
     {
         MainFrame.Navigate(new HomePage());
     }
+
+    private void InfoMenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+        {
+            FileName = "https://github.com/rbwo1o/PowerPoint-Merger",
+            UseShellExecute = true
+        });
+    }
 }
