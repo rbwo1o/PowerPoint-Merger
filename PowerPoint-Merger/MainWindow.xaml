@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PowerPoint_Merger"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="PowerPoint Merger" Height="450" Width="800"
+        Title="PowerPoint-Merger" Height="450" Width="800"
         Background="#2d2d30">
     <Grid>
         <Grid.RowDefinitions>

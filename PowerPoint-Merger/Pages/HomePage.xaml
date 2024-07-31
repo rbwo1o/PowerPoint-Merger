@@ -14,11 +14,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="125"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="PowerPoint Merger" Foreground="White" FontFamily="Segoe UI" FontSize="25" HorizontalAlignment="Center"/>
 
-        <TextBox x:Name="SearchTextBox" Height="30" Grid.Row="1" MaxWidth="450" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontWeight="DemiBold" />
-        
+        <TextBox x:Name="SearchTextBox" Height="30" Grid.Row="1" MaxWidth="450" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontWeight="DemiBold" TextChanged="SearchTextBox_TextChanged" />
+
+        <StackPanel x:Name="SearchResultsStackPanel" Grid.Row="2"  VerticalAlignment="Top" MaxWidth="450" />
+
     </Grid>
 </Page>
