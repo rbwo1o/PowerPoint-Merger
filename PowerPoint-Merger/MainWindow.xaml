@@ -13,12 +13,12 @@
             <RowDefinition Height="25" />
             <RowDefinition Height="15" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="15" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
         <Menu Grid.ColumnSpan="3" Background="#007acc">

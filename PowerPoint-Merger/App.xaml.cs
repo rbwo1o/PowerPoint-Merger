@@ -8,19 +8,21 @@ namespace PowerPoint_Merger;
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>
-public partial class App : Application
+public partial class App : System.Windows.Application
 {
-    public static ConfigurationService ConfigurationService = new ConfigurationService();
+    public static ConfigurationService _Configuration = new ConfigurationService();
 
     private void Application_Startup(object sender, StartupEventArgs e)
     {
-        if (!ConfigurationService.Initialize())
+        if (!_Configuration.Initialize())
         {
             // display error
             // potentially create a new config file
         }
         else 
         {
+            MainWindow window = new MainWindow();
+            window.Show();
         }
         
     }
