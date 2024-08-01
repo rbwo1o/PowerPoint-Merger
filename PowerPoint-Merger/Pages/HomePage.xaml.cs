@@ -28,6 +28,7 @@ public partial class HomePage : Page
     public HomePage()
     {
         InitializeComponent();
+        DataContext = _ppService;
         SearchTextBox.Focus();
     }
 
@@ -48,7 +49,8 @@ public partial class HomePage : Page
             var btn = new System.Windows.Controls.Button 
             {
                 Content = matches.ElementAt(i).Name,
-                Background = System.Windows.Media.Brushes.Azure,
+                Background = System.Windows.Media.Brushes.Transparent,
+                Foreground = System.Windows.Media.Brushes.White,
                 Height = 25,
                 Cursor = System.Windows.Input.Cursors.Hand
             };
@@ -64,5 +66,21 @@ public partial class HomePage : Page
         _ppService.AddTargetPP(pp);
         SearchTextBox.Text = string.Empty;
         SearchTextBox.Focus();
+    }
+
+    private void RemoveSelectedTargetPPsButton_Click(object sender, RoutedEventArgs e)
+    {
+        foreach(var selection in TargetPPsListBox.SelectedItems.Cast<PowerPointModel>().ToList()) 
+        {
+            _ppService.RemoveTargetPP(selection);
+        }
+    }
+
+    private void RemoveALLTargetPPsButton_Click(object sender, RoutedEventArgs e)
+    {
+        foreach (var selection in TargetPPsListBox.Items.Cast<PowerPointModel>().ToList()) 
+        {
+            _ppService.RemoveTargetPP(selection);
+        }
     }
 }

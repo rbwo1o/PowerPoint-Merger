@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PowerPoint_Merger.Pages"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage">
@@ -14,8 +15,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="45"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="125"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="PowerPoint Merger" Foreground="White" FontFamily="Segoe UI" FontSize="25" HorizontalAlignment="Center"/>
@@ -23,6 +25,40 @@
         <TextBox x:Name="SearchTextBox" Height="30" Grid.Row="1" MaxWidth="450" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontWeight="DemiBold" TextChanged="SearchTextBox_TextChanged" />
 
         <StackPanel x:Name="SearchResultsStackPanel" Grid.Row="2"  VerticalAlignment="Top" MaxWidth="450" />
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="3" MaxWidth="600" Margin="0,25,0,0">
+            <Button x:Name="RemoveSelectedTargetPPsButton" Height="25" Width="30" Background="#FAA0A0" Cursor="Hand" ToolTip="Remove Selected PowerPoints" HorizontalAlignment="Left" Click="RemoveSelectedTargetPPsButton_Click">
+                <Button.Content>
+                    <fa:FontAwesome Icon="Minus" />
+                </Button.Content>
+            </Button>
+            <Button x:Name="RemoveALLTargetPPsButton" Height="25" Width="30" Background="#FAA0A0" Cursor="Hand" ToolTip="Remove Selected PowerPoints" HorizontalAlignment="Left" Click="RemoveALLTargetPPsButton_Click">
+                <Button.Content>
+                    <fa:FontAwesome Icon="Trash" />
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="3" Margin="0,50,0,0" MaxWidth="600">
+            <ListView x:Name="TargetPPsListBox" ItemsSource="{Binding TargetPPFiles}" Background="Transparent" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Background="Transparent">
+
+                            <Label Content="{Binding Name}" Foreground="White" FontSize="15"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <Button Grid.Row="4" Height="50" Background="#007acc" Cursor="Hand" MaxWidth="600">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <fa:FontAwesome Icon="Compress" Foreground="White" FontSize="20" Margin="0,7,3,0"/>
+                    <Label Content="Combine" Foreground="White" FontSize="20" FontFamily="Segoe UI" FontWeight="DemiBold"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
 
     </Grid>
 </Page>

@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:PowerPoint_Merger"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="PowerPoint-Merger" Height="450" Width="800"
+        Title="PowerPoint-Merger" Height="800" Width="600"
         Background="#2d2d30">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition Height="15" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -28,7 +28,7 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
 
-            <MenuItem Height="25" x:Name="HomeMenuItem" Click="HomeMenuItem_Click">
+            <MenuItem Height="25" x:Name="HomeMenuItem" Click="HomeMenuItem_Click" Cursor="Hand">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:FontAwesome Icon="Home" Foreground="White" FontSize="15" Margin="0,1,5,0"/>
@@ -36,8 +36,8 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
-            
-            <MenuItem Height="25">
+
+            <MenuItem Height="25" Cursor="Hand">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:FontAwesome Icon="Gear" Foreground="LightGray" FontSize="15" Margin="0,1,5,0"/>
@@ -45,7 +45,7 @@
                     </StackPanel>
                 </MenuItem.Header>
 
-                <MenuItem x:Name="SourcesMenuItem" Click="SourcesMenuItem_Click">
+                <MenuItem x:Name="SourcesMenuItem" Click="SourcesMenuItem_Click" Cursor="Hand">
                     <MenuItem.Icon>
                         <TextBlock Text="1 )" FontFamily="Segoe UI" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </MenuItem.Icon>
@@ -57,9 +57,22 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
+
+                <MenuItem x:Name="OutputDirectoryMenuItem" Cursor="Hand" Click="OutputDirectoryMenuItem_Click">
+                    <MenuItem.Icon>
+                        <TextBlock Text="2 )" FontFamily="Segoe UI" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </MenuItem.Icon>
+
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <fa:FontAwesome Icon="ArrowCircleRight" Foreground="LimeGreen" FontSize="15" Margin="0,1,5,0"/>
+                            <TextBlock Text="Output Directory" Foreground="Black" FontFamily="Segoe UI"/>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
             </MenuItem>
-            
-            <MenuItem x:Name="InfoMenuItem" Height="25" HorizontalAlignment="Right" Click="InfoMenuItem_Click">
+
+            <MenuItem x:Name="InfoMenuItem" Height="25" HorizontalAlignment="Right" Click="InfoMenuItem_Click" Cursor="Hand">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <fa:FontAwesome Icon="Info" Foreground="Blue" FontSize="15" Margin="0,1,5,0"/>
@@ -70,6 +83,8 @@
         </Menu>
 
         <Frame x:Name="MainFrame" Grid.Row="2" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+
+        <StackPanel x:Name="NotificationStackPanel" Grid.Row="3" Grid.ColumnSpan="3" Background="#36393e" />
 
     </Grid>
 </Window>

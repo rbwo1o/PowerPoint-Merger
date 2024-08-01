@@ -25,7 +25,7 @@ public partial class SourcesPage : Page
     public SourcesPage()
     {
         InitializeComponent();
-        SourcesDataGrid.ItemsSource = App._Configuration.Sources;
+        SourcesDataGrid.ItemsSource = App._ConfigurationService.Configuration.Sources;
         EditSourceButton.IsEnabled = false;
         RemoveSourceButton.IsEnabled = false;
     }
@@ -65,8 +65,8 @@ public partial class SourcesPage : Page
 
     private void RemoveSourceButton_Click(object sender, RoutedEventArgs e)
     {
-        App._Configuration.Sources!.Remove((SourceModel)SourcesDataGrid.SelectedItem);
-        App._Configuration.Save();
+        App._ConfigurationService.Configuration.Sources!.Remove((SourceModel)SourcesDataGrid.SelectedItem);
+        App._ConfigurationService.Save();
 
         SourcesDataGrid.Items.Refresh();
     }

@@ -10,11 +10,11 @@ namespace PowerPoint_Merger;
 /// </summary>
 public partial class App : System.Windows.Application
 {
-    public static ConfigurationService _Configuration = new ConfigurationService();
+    public static ConfigurationService _ConfigurationService = new ConfigurationService();
 
     private void Application_Startup(object sender, StartupEventArgs e)
     {
-        if (!_Configuration.Initialize())
+        if (!_ConfigurationService.Initialize())
         {
             // display error
             // potentially create a new config file

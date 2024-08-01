@@ -13,7 +13,7 @@ public class PowerPointService
 {
     public List<PowerPointModel> PPFiles { get; private set; } = new();
 
-    private ObservableCollection<PowerPointModel> _targetPPs = new();
+    public ObservableCollection<PowerPointModel> TargetPPFiles { get; private set; } = new();
 
     public PowerPointService() 
     {
@@ -22,7 +22,7 @@ public class PowerPointService
 
     private void GetPPFiles() 
     {
-        foreach (var source in App._Configuration.Sources)
+        foreach (var source in App._ConfigurationService.Configuration.Sources)
         {
             SearchOption option = source.RecursivlySearch ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
 
@@ -49,6 +49,11 @@ public class PowerPointService
 
     public void AddTargetPP(PowerPointModel pp) 
     {
-        _targetPPs.Add(pp);
+        TargetPPFiles.Add(pp);
+    }
+
+    public void RemoveTargetPP(PowerPointModel pp) 
+    {
+        TargetPPFiles.Remove(pp);
     }
 }

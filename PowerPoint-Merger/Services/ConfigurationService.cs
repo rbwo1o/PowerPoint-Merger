@@ -14,7 +14,9 @@ public class ConfigurationService
 {
     private string _configFile = "Config.json";
 
-    public List<SourceModel> Sources { get; set; } = new();
+    //public List<SourceModel> Sources { get; set; } = new();
+
+    public ConfigurationModel Configuration { get; set; } = new();
 
     public bool Initialize() 
     {
@@ -36,7 +38,7 @@ public class ConfigurationService
     {
         try 
         {
-            string jsonString = JsonConvert.SerializeObject(Sources);
+            string jsonString = JsonConvert.SerializeObject(Configuration);
 
             if (File.Exists(_configFile)) 
             {
@@ -60,7 +62,7 @@ public class ConfigurationService
             if (File.Exists(_configFile))
             {
                 string jsonString = File.ReadAllText(_configFile);
-                Sources = JsonConvert.DeserializeObject<List<SourceModel>>(jsonString) ?? new List<SourceModel>();
+                Configuration = JsonConvert.DeserializeObject<ConfigurationModel>(jsonString) ?? new ConfigurationModel();
                 return true;
             }
             // file not found

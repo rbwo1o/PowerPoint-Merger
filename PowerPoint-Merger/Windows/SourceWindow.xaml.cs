@@ -72,7 +72,7 @@ namespace PowerPoint_Merger.Windows
             {
                 if (_source == null) // Add 
                 {
-                    if (App._Configuration.Sources.Find(x => x.Path == SourceTextBox.Text) != null)
+                    if (App._ConfigurationService.Configuration.Sources.Find(x => x.Path == SourceTextBox.Text) != null)
                     {
                         SourceTextBox.Text = _errorTextDuplicate;
                         SourceTextBox.Background = System.Windows.Media.Brushes.Red;
@@ -88,19 +88,19 @@ namespace PowerPoint_Merger.Windows
                         RecursivlySearch = Recursive_CheckBox.IsChecked!.Value
                     };
 
-                    App._Configuration.Sources.Add(_source);
+                    App._ConfigurationService.Configuration.Sources.Add(_source);
                 }
                 else // Edit
                 {
-                    int index = App._Configuration.Sources.FindIndex(x => x.Path == _source.Path);
+                    int index = App._ConfigurationService.Configuration.Sources.FindIndex(x => x.Path == _source.Path);
 
-                    App._Configuration.Sources[index].Name = NameTextBox.Text;
-                    App._Configuration.Sources[index].Path = SourceTextBox.Text;
-                    App._Configuration.Sources[index].RecursivlySearch = Recursive_CheckBox.IsChecked!.Value;
+                    App._ConfigurationService.Configuration.Sources[index].Name = NameTextBox.Text;
+                    App._ConfigurationService.Configuration.Sources[index].Path = SourceTextBox.Text;
+                    App._ConfigurationService.Configuration.Sources[index].RecursivlySearch = Recursive_CheckBox.IsChecked!.Value;
                 }
 
                 // Save
-                App._Configuration.Save();
+                App._ConfigurationService.Save();
                 Close();
             }
             else
