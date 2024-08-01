@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace PowerPoint_Merger.Services;
 
@@ -12,7 +13,7 @@ public class PowerPointService
 {
     public List<PowerPointModel> PPFiles { get; private set; } = new();
 
-    private List<PowerPointModel> _targetPPs = new();
+    private ObservableCollection<PowerPointModel> _targetPPs = new();
 
     public PowerPointService() 
     {
