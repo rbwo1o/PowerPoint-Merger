@@ -19,12 +19,23 @@ public class PowerPointService
 
     public ObservableCollection<PowerPointModel> TargetPPFiles { get; private set; } = new();
 
-    public PowerPointService() 
+    private static PowerPointService? _instance = null;
+
+    private PowerPointService() { }
+
+    public static PowerPointService GetInstance()
     {
+        if (_instance == null)
+        {
+            _instance = new PowerPointService();
+        }
+
         GetPPFiles();
+
+        return _instance;
     }
 
-    private void GetPPFiles() 
+    private static void GetPPFiles()
     {
         foreach (var source in App._ConfigurationService.Configuration.Sources)
         {
@@ -34,7 +45,7 @@ public class PowerPointService
             IEnumerable<string> files = Directory.GetFiles(source.Path, "*", option)
                                                  .Where(f => f.EndsWith(".ppt") || f.EndsWith(".pptx"));
 
-            foreach (var file in files) 
+            foreach (var file in files)
             {
                 var newPP = new PowerPointModel
                 {
@@ -43,32 +54,32 @@ public class PowerPointService
                 };
 
                 // Only add if the path is not already in the list!
-                if (!PPFiles.Any(pp => pp.FilePath == newPP.FilePath)) 
+                if (!_instance!.PPFiles.Any(pp => pp.FilePath == newPP.FilePath))
                 {
-                    PPFiles.Add(newPP);
+                    _instance!.PPFiles.Add(newPP);
                 }
             }
         }
     }
 
-    public void AddTargetPP(PowerPointModel pp) 
+    public void AddTargetPP(PowerPointModel pp)
     {
         TargetPPFiles.Add(pp);
     }
 
-    public void RemoveTargetPP(PowerPointModel pp) 
+    public void RemoveTargetPP(PowerPointModel pp)
     {
         TargetPPFiles.Remove(pp);
     }
 
-    public bool CombinePPs() 
+    public bool CombinePPs()
     {
         // Create a new PowerPoint application instance
         PowerPoint.Application pptApplication = new PowerPoint.Application()
         {
             WindowState = PowerPoint.PpWindowState.ppWindowMinimized
         };
-        
+
 
         // Create a new empty presentation that will hold the merged slides
         PowerPoint.Presentation mergedPresentation = pptApplication.Presentations.Add(MsoTriState.msoTrue);
@@ -122,7 +133,7 @@ public class PowerPointService
         return true;
     }
 
-    private void KillPPProcesses() 
+    private void KillPPProcesses()
     {
         string processName = "POWERPNT"; // PowerPoint process name
 

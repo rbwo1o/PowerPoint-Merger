@@ -23,7 +23,7 @@ namespace PowerPoint_Merger.Pages;
 /// </summary>
 public partial class HomePage : Page
 {
-    private PowerPointService _ppService = new();
+    private PowerPointService _ppService = PowerPointService.GetInstance();
 
     public HomePage()
     {
