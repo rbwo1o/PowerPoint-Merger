@@ -18,6 +18,8 @@
   <ItemGroup>
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="gong-wpf-dragdrop" Version="3.2.1" />
+    <PackageReference Include="Microsoft.Office.Interop.PowerPoint" Version="15.0.4420.1018" />
+    <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

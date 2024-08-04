@@ -55,7 +55,7 @@
             </ListView>
         </Grid>
 
-        <Button Grid.Row="4" Height="50" Background="#007acc" Cursor="Hand" MaxWidth="600">
+        <Button x:Name="CombinePPButton" Grid.Row="4" Height="50" Background="#007acc" Cursor="Hand" MaxWidth="600" Click="CombinePPButton_Click">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <fa:FontAwesome Icon="Compress" Foreground="White" FontSize="20" Margin="0,7,3,0"/>

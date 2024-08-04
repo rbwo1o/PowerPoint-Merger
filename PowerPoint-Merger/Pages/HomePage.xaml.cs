@@ -83,4 +83,25 @@ public partial class HomePage : Page
             _ppService.RemoveTargetPP(selection);
         }
     }
+
+    private async void CombinePPButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (_ppService.TargetPPFiles.Count < 2)
+            return;
+
+        this.Cursor = System.Windows.Input.Cursors.Wait;
+
+        bool success = await Task.Run(() => _ppService.CombinePPs());
+        if (success)
+        {
+            // Success Window
+
+        }
+        else 
+        {
+            // Error Window
+        }
+
+        this.Cursor = System.Windows.Input.Cursors.Arrow;
+    }
 }
