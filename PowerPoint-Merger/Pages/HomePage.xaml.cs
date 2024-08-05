@@ -89,6 +89,11 @@ public partial class HomePage : Page
         if (_ppService.TargetPPFiles.Count < 2)
             return;
 
+        SearchTextBox.IsEnabled = false;
+        RemoveALLTargetPPsButton.IsEnabled = false;
+        RemoveSelectedTargetPPsButton.IsEnabled = false;
+        CombinePPButton.IsEnabled = false;
+
         this.Cursor = System.Windows.Input.Cursors.Wait;
 
         bool success = await Task.Run(() => _ppService.CombinePPs());
@@ -101,6 +106,11 @@ public partial class HomePage : Page
         {
             // Error Window
         }
+
+        SearchTextBox.IsEnabled = true;
+        RemoveALLTargetPPsButton.IsEnabled = true;
+        RemoveSelectedTargetPPsButton.IsEnabled = true;
+        CombinePPButton.IsEnabled = true;
 
         this.Cursor = System.Windows.Input.Cursors.Arrow;
     }
